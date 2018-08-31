@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+{% load staticfiles %}
+
+<html>
+	<head>
+		<title>灯火阑珊</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'assets/css/ie9.css' %}" /><![endif]-->
+		<noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<div class="logo">
+							<span class="icon fa-diamond"></span>
+						</div>
+						<div class="content">
+							<div class="inner">
+								<h1>DENGHUOLANSHAN</h1>
+								<p><!--[-->灯火阑珊的个人博客 - DHLS'S BLOG <a href="#about">灯火阑珊</a>
+                                <!--]--><br>
+								<!--[-->杂七杂八，什么都有。 <a href="#blog">歪理邪说的聚集地</a> <!--]--></p>
+
+
+							</div>
+						</div>
+						<nav>
+							<ul>
+								<li><a href="#blog">BLOG</a></li>
+								<li><a href="#friends">myFRIENDS</a></li>
+								<li><a href="#download">DOWNLOAD</a></li>
+								<li><a href="#about">ABOUT</a></li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- BLOG -->
+							<article id="blog">
+								<h2 class="major">叽里呱啦</h2>
+								<span class="image main"><img src="{% static 'images/pic01.jpg' %}" alt="" /></span>
+                                {% for blog in all_blog %}
+                                    <h3 class="major">{{ blog.title }}</h3>
+                                    <label>
+                                        {{ blog.content | safe}}<br><br><br>
+                                    </label>
+                                {% endfor %}
+                            </article>
+
+						<!-- Friend -->
+							<article id="friends">
+								<h2 class="major">友情链接</h2>
+								<span class="image main"><img src="{% static 'images/pic02.jpg' %}" alt="" /></span>
+                                <form>
+                                    <div class="field half first">
+                                        {% for blog in all_blog%}
+                                                <li><a href="#blog">{{ blog.title }}</a></li>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="field half">
+                                        <label><!--[-->现在接受所有人的友链，可已通过社交软件找到我，或者这里留言，交换友链，交个朋友伐~<!--[--></label>
+                                    </div>
+                                </form>
+                                <form>
+                                    <div class="field half first">
+                                        {% for friends in all_friends %}
+                                            <li><a href="{{ friends.content }}">{{ friends.title }}</a></li>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="field half">
+                                        <h3><a href="#elements" class="icon fa-pencil"> &nbsp;歪理邪说</a></h3>
+                                    </div>
+{#                                    <div></div>#}
+								</form>
+							</article>
+
+
+						<!-- Download -->
+							<article id="download">
+								<h2 class="major">资源下载</h2>
+								<span class="image main"><img src="{% static 'images/pic03.jpg' %}" alt="" /></span>
+
+								<p>
+                                   {% for download in all_download %}
+                                   <a href="{{ download.content }}" download="{{ download.title }}">{{ download.title }}</a><br>
+                                   {% endfor %}
+                                </p>
+
+							</article>
+
+						<!-- About -->
+							<article id="about">
+								<h2 class="major">关于我</h2>
+                                <span class="image main"><img src="{% static 'images/pic04.jpeg' %}" alt="" /></span>
+									{% for about in all_about %}
+                                        <h3>
+                                            {{ about.title }}
+                                        </h3>
+                                        <h5>灯火阑珊</h5>
+                                        <p>
+                                            {{ about.content }}
+                                        </p>
+                                    {% endfor %}
+									<br>
+								<ul class="icons">
+									<li><a href="#" target="blank" class="icon fa-map" ><span class="label">Earth</span></a></li>
+									<li><a href="#" target="blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="#" target="blank" class="icon fa-mail-forward"><span class="label">Mail</span></a></li>
+								</ul>
+							</article>
+
+						<!-- Elements -->
+							<article id="elements">
+								<h2 class="major">歪理邪说</h2>
+
+								<section>
+									<blockquote> 数据主义既非自由主义，亦非人文主义。 生物真的只是算法，而生命也真的只是数据处理吗？ 智能和意识，究竟哪一个才更有价值？ 等到无意识但具备高度智能的算法比我们更了解我们的时候，社会、政治和日常生活将会有什么变化？ </blockquote>
+									<h4>🏷️</h4>
+									<pre>
+                                        <code>
+
+          .:okOOOkdc'           'cdkOOOko:.
+        .xOOOOOOOOOOOOc       cOOOOOOOOOOOOx.
+       :OOOOOOOOOOOOOOOk,   ,kOOOOOOOOOOOOOOO:
+      'OOOOOOOOOkkkkOOOOO: :OOOOOOOOOOOOOOOOOO'
+      oOOOOOOOO.    .oOOOOoOOOOl.    ,OOOOOOOOo
+      dOOOOOOOO.      .cOOOOOc.      ,OOOOOOOOx
+      lOOOOOOOO.         ;d;         ,OOOOOOOOl
+      .OOOOOOOO.   .;           ;    ,OOOOOOOO.
+       cOOOOOOO.   .OOc.     'oOO.   ,OOOOOOOc
+        oOOOOOO.   .OOOO.   :OOOO.   ,OOOOOOo
+         lOOOOO.   .OOOO.   :OOOO.   ,OOOOOl
+          ;OOOO'   .OOOO.   :OOOO.   ;OOOO;
+           .dOOo   .OOOOocccxOOOO.   xOOd.
+             ,kOl  .OOOOOOOOOOOOO. .dOk,
+               :kk;.OOOOOOOOOOOOO.cOk:
+                ;kOOOOOOOOOOOOOOOk:
+                 ,xOOOOOOOOOOOx,
+                   .lOOOOOOOl.
+                      ,dOd,
+                        .
+
+                                        </code>
+                                    </pre>
+								</section>
+
+								<section>
+									<form method="post" action="#">
+										<div class="field half first">
+											<label for="demo-name">姓名</label>
+											<input type="text" name="demo-name" id="demo-name" value="" placeholder="灯火阑珊" />
+										</div>
+										<div class="field half">
+											<label for="demo-email">邮箱</label>
+											<input type="email" name="demo-email" id="demo-email" value="" placeholder="#" />
+										</div>
+										<div class="field">
+											<label for="demo-category">分类</label>
+											<div class="select-wrapper">
+												<select name="demo-category" id="demo-category">
+													<option value="">-</option>
+													<option value="1">分个什么类呢</option>
+													<option value="1">不知道啊</option>
+													<option value="1">随便写吧</option>
+													<option value="1">哈想八想</option>
+												</select>
+											</div>
+										</div>
+										<div class="field">
+											<label for="demo-message"> 在线留言</label>
+											<textarea name="demo-message" id="demo-message" placeholder="" rows="6"></textarea>
+										</div>
+										<ul class="actions">
+											<li><input type="submit" value="Send Message" class="special" /></li>
+											<li><input type="reset" value="Reset" /></li>
+										</ul>
+									</form>
+								</section>
+
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">COPYRIGHT  &copy; 2018 <a href="#about">灯火阑珊</a>.</p>
+					</footer>
+
+			</div>
+
+		<!-- BG -->
+			<div id="bg"></div>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
